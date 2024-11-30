@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+AU+VIC&display=swap');
+
+
+body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+}
+
+h1 {
+    font-family: "Playwrite AU VIC", cursive;
+}
+.navbar-nav{
+    position: relative;
+    z-index: 999; 
+}
+.nav-item {   
+    pointer-events: auto;
+}
+
+.text-underline {
+    text-decoration: underline;
+    text-underline-offset: 5px !important; 
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    position: relative; 
+    z-index: 20;
+}
+
+#wishes {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    height: 100%;
+    overflow: visible;;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 25;
+}
+
+.wishes-container {
+    display: flex;
+    flex-wrap: nowrap;
+    position: relative;
+    z-index: 25;
+}
+
+.wishes-container li {
+    color: white;
+    white-space: nowrap;
+    line-height: normal;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    display: inline-block;
+    height: 2.5rem;
+    font-size: 1rem;
+    position: absolute;
+    left: 0;
+    top: 20px; 
+    opacity: 0; 
+    visibility: visible; 
+    z-index: 99; 
+}
+
+.animation {
+    display: inline-block;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-duration: 20s;
+    position: absolute;
+    opacity: 1; 
+    /* animation-delay: var(--delay);  */
+}
+
+@keyframes moveLeft {
+    0% { transform: translateX(100vw); opacity: 1; }
+    100% { transform: translateX(-100vw); opacity: 1; }
+}
+
+@keyframes moveRight {
+    0% { transform: translateX(-100vw); opacity: 1; }
+    100% { transform: translateX(100vw); opacity: 1; }
+}
+
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.content {
+    position: relative;
+    z-index: 2; 
+}
