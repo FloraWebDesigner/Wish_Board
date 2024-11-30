@@ -25,7 +25,6 @@ const firebaseConfig = {
   const database = getDatabase();
   const messages = ref(database, "/messages");
 
-  let linesOccupied = new Set();
   // Load messages on data event
   onValue(
     messages,
@@ -77,7 +76,7 @@ const firebaseConfig = {
                     li.style.animationDelay = "0s"; 
                     isFirstElement = false; 
                 } else {
-                    li.style.animationDelay = getRandomDelay();
+                    li.style.animationDelay = getRandomDelay(3);
                 }
                 const position = getRandomPosition();
                 li.style.top = position.top;
@@ -106,19 +105,17 @@ function getRandomDirection() {
     return directions[Math.floor(Math.random() * directions.length)];
 }
 
+let lastPosition = window.innerHeight * 0.2; 
+const minDistance = 80; 
+
 function getRandomPosition() {
-    const containerTop = window.innerHeight * 0.2;
-    const containerHeight = window.innerHeight - containerTop;
-    const fontHeight = 60; 
-    const numberOfLines = Math.floor(containerHeight / fontHeight);   
-    let line;
-    do {
-        line = Math.floor(Math.random() * numberOfLines);
-    } while (linesOccupied.has(line));
-    linesOccupied.add(line);
-    
-    const top = containerTop + line * fontHeight;
-    const left = Math.random() * (window.innerWidth - 200);     
+    const left = Math.random() * (window.innerWidth - 300);     
+    const top = lastPosition;
+    lastPosition += minDistance;
+    if (lastPosition > window.innerHeight) {
+        lastPosition = window.innerHeight * 0.2; 
+    }
+
     return { left: left + 'px', top: top + 'px' };
 }
 

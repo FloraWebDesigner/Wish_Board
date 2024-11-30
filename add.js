@@ -56,7 +56,9 @@ const firebaseConfig = {
 
     name.value = "";
     wish.value = "";
-    emojiSelect.value = "";   
+    emojiSelect.value = "";  
+
+    window.location.href="index.html";
 });
 
   async function loadEmojis() {
@@ -70,5 +72,7 @@ const firebaseConfig = {
         option.textContent = emoji.character; 
         emojiSelect.appendChild(option); 
     });
+
+
 }
 

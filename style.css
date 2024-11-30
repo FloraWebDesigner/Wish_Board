@@ -102,3 +102,7 @@ ul {
     position: relative;
     z-index: 2; 
 }
+
+option {
+    font-size: 1.5rem;
+}
