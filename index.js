@@ -55,7 +55,7 @@ const firebaseConfig = {
                 li.style.alignItems = "center"; // Center the items vertically
                 li.style.padding = "5px 5px"; // Add padding to the container
                 li.style.margin = "5px"; // Optional: Add margin for spacing between list items
-        
+                li.style.animationDuration = `${15 + Math.random() * 5}s`;
                 // Create the emoji element and set the font size
                 const emojiElement = document.createElement("span");
                 emojiElement.textContent = emojiCharacter;
@@ -76,7 +76,7 @@ const firebaseConfig = {
                     li.style.animationDelay = "0s"; 
                     isFirstElement = false; 
                 } else {
-                    li.style.animationDelay = getRandomDelay(3);
+                    li.style.animationDelay = getRandomDelay(6);
                 }
                 const position = getRandomPosition();
                 li.style.top = position.top;
@@ -105,7 +105,7 @@ function getRandomDirection() {
     return directions[Math.floor(Math.random() * directions.length)];
 }
 
-let lastPosition = window.innerHeight * 0.2; 
+let lastPosition = window.innerHeight * 0.25; 
 const minDistance = 80; 
 
 function getRandomPosition() {
@@ -119,9 +119,8 @@ function getRandomPosition() {
     return { left: left + 'px', top: top + 'px' };
 }
 
-function getRandomDelay(seconds) {
-    return `${seconds}s`;
-    // return (Math.random() * 3+1 )+ 's';
+function getRandomDelay(maxSeconds) {
+    return `${Math.random() * maxSeconds}s`; 
 }
 
 
