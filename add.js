@@ -9,6 +9,8 @@ import {
 
 import { getAllEmoji} from "./api.js";
 
+
+
 //https://console.firebase.google.com/project/love-board-ad5ca/database/love-board-ad5ca-default-rtdb/data
 const firebaseConfig = {
     apiKey: "AIzaSyBd_782Cn17jjvRisbr621Eoz5ZlUpsW3I",

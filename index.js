@@ -55,7 +55,7 @@ const firebaseConfig = {
                 li.style.alignItems = "center"; // Center the items vertically
                 li.style.padding = "5px 5px"; // Add padding to the container
                 li.style.margin = "5px"; // Optional: Add margin for spacing between list items
-                li.style.animationDuration = `${15 + Math.random() * 5}s`;
+                li.style.animationDuration = `${16 + Math.random() * 8}s`;
                 // Create the emoji element and set the font size
                 const emojiElement = document.createElement("span");
                 emojiElement.textContent = emojiCharacter;
@@ -73,10 +73,10 @@ const firebaseConfig = {
                 li.appendChild(textElement);
         
                 if (isFirstElement) {
-                    li.style.animationDelay = "0s"; 
+                    li.style.animationDelay = "0"; 
                     isFirstElement = false; 
                 } else {
-                    li.style.animationDelay = getRandomDelay(6);
+                    li.style.animationDelay = getRandomDelay(8);
                 }
                 const position = getRandomPosition();
                 li.style.top = position.top;
