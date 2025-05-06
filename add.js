@@ -68,9 +68,9 @@ const firebaseConfig = {
 
     emojiList.forEach(emoji => {
         const option = document.createElement("option");
-        option.value = emoji.unicodeName; 
-        option.textContent = emoji.character; 
-        emojiSelect.appendChild(option); 
+        option.value = emoji.annotation; 
+        option.textContent = `${emoji.emoji} ${emoji.annotation}`;
+        emojiSelect.appendChild(option);
     });
 
 
