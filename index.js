@@ -5,7 +5,7 @@ import {
     ref
 } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";
 
-import {getOneEmoji } from "./api.js";
+import {getOneEmoji,getAllEmoji } from "./api.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyBd_782Cn17jjvRisbr621Eoz5ZlUpsW3I",
@@ -33,17 +33,18 @@ const firebaseConfig = {
         const ul=document.getElementById('wishes');
         ul.replaceChildren();
         const messages = snapshot.val();
-        // Loop through messages and add them to the url
-        let isFirstElement = true;
+        const allEmojis = getAllEmoji();
 
-        for (const key in messages) {
-            if (messages.hasOwnProperty(key)) {
-                const childData = messages[key]; 
-                console.log(childData);
+         let isFirstElement = true;
+
+    for (const key in messages) {
+        if (messages.hasOwnProperty(key)) {
+            const childData = messages[key]; 
+
         
                 // Fetch the emoji character from the API
                 const selectedUnicodeName = childData.emoji;
-                const emojiCharacter = await getOneEmoji(selectedUnicodeName);
+                const emojiCharacter = getOneEmoji(selectedUnicodeName);
         
                 // Create a new element to hold both emoji and text
                 const li = document.createElement("li");
